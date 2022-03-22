@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add Page</title></head>
+<body>
+  <form action="" method="post">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" value="add">
+        <input type="button" onclick="window.location='{% url 'cat:all' %}';return false;" value="cancle">
+  </form>
+</body>
+</html>

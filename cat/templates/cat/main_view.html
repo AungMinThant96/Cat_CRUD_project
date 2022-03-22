@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Main Page</title></head>
+<body>
+  <h1>Cat List</h1>
+  {% if cat_value %}
+	<ul>
+	    {% for cat in cat_value %}
+		<li> 
+		    {{cat.nickname}}|foods({{cat.foods}})|weight({{cat.weight}})
+                    (<a href="{% url 'cat:catupdate' cat.id%}">Update</a>|<a href="{% url 'cat:catdelete' cat.id%}">Delete</a>)
+		</li>
+	    {% endfor %}
+	</ul>
+  {% else %}
+	<p>Please add Cat.</p>
+  {% endif %}
+  
+  {% if breed_count > 0 %}
+	<p><a href="{% url 'cat:catcreate' %}">Add to cat</a></p>
+  {% else %}
+        <p>Please add breed</p>
+  {% endif %}
+
+  <a href="{% url 'cat:breedview' %}">Breed list</a>|<a href="{% url 'cat:breedcreate' %}">Add to breed</a><br>
+  <a href="{% url 'logout' %}?next={% url 'cat:all' %}">Logout</a>
+</body>
+</html>

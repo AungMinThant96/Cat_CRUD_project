@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Breed Page</title></head>
+<body>
+  <h1>Breed List</h1>
+  {% if breed_value %}
+	<ul>
+	    {% for breed in breed_value %}
+		<li>{{breed.name}}(
+                     <a href="{% url 'cat:breedupdate' breed.id%}">Update</a>|<a href="{% url 'cat:breeddelete' breed.id%}">Delete</a>)
+                </li>
+            {% endfor %}
+        </ul>
+  {% else %}
+        <p>Please add Breed</p>
+  {% endif %}
+  
+  <a href="{% url 'cat:all' %}">Back to main</a>|<a href="{% url 'cat:breedcreate' %}">Add to breed</a>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Cat Create Page</title></head>
+<body>
+  <h3>Arr you sure for delete {{cat.nickname}}?</h3>
+  <form action="" method="post">
+	{% csrf_token %}
+        
+	<input type="submit" value="Confirm">
+        <input type="button" onclick="window.location='{% url 'cat:all' %}';return false;" value="Cancle">
+  </form>
+</body>
+</html>
